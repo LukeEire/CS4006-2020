@@ -212,11 +212,13 @@ public class is18250785 {
 			int count = 1;
 			
 			//Checks available moves and adds valid ones to X	
-			if((grid[currentY][currentX +1] != null)&&(grid[currentY][currentX +1] != "[*]")) {
-				X[Xcount][0] = M[currentY][currentX+1];
-				X[Xcount][1] = currentY;
-				X[Xcount][2] = currentX;
-				Xcount++;
+			if(currentX > 7) {
+				if(grid[currentY][currentX +1] != "[*]") {
+					X[Xcount][0] = M[currentY][currentX+1];
+					X[Xcount][1] = currentY;
+					X[Xcount][2] = currentX;
+					Xcount++;
+				}
 			}
 			
 			if((grid[currentY][currentX -1] != null)&&(grid[currentY][currentX -1] != "[*]")) {
