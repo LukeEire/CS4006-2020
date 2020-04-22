@@ -1,10 +1,11 @@
 /*
  * Student 1: Luke Kellett Murray 18250785
+
  * Student 2: Scott Kelleher 18255078
- * The big lmao big stress
  */
 
 import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class is18250785 {
@@ -23,13 +24,13 @@ public class is18250785 {
 	
 		Scanner in = new Scanner(System.in);
 		System.out.println("Please enter starting X co-ordinant");
-		userStartx = (in.nextInt()-1);
+		userStartx = in.nextInt();
 		System.out.println("Please enter starting Y co-ordinant");
-		userStarty = (in.nextInt()-1);
+		userStarty = in.nextInt();
 		System.out.println("Please enter goal X co-ordinant");
-		userGoalx = (in.nextInt()-1);
+		userGoalx = in.nextInt();
 		System.out.println("Please enter goal Y co-ordinant");
-		userGoaly = (in.nextInt()-1);
+		userGoaly = in.nextInt();
 		in.close();
 		
 		//Generate blank grid
@@ -142,11 +143,50 @@ public class is18250785 {
 			if(ranShape == 3) {
 				int ranX = (int) ((Math.random() * 4)+1);
 				int ranY = (int) ((Math.random() * 4)+1);
+				
+				if(grid[ranY][ranX] !="[S]" && grid[ranY][ranX] !="[G]") {
 				grid [ranY][ranX] = "[*]";
+				}
+				else  {
+					continue;
+				}
+				
+				if(grid[ranY +1][ranX] !="[S]" && grid[ranY][ranX] !="[G]") {
 				grid [ranY+1][ranX] = "[*]";
+				}
+				else if(grid[ranY][ranX] =="[*]") {
+					grid[ranY][ranX] = "[]";
+					continue;
+				}
+				
+				if(grid [ranY+2][ranX] != "[S]" && grid [ranY+2][ranX] != "[G]") {
 				grid [ranY+2][ranX] = "[*]";
+				}
+				else if(grid[ranY][ranX] =="[*]" && grid[ranY +1][ranX] =="[*]") {
+					grid[ranY][ranX] ="[]";
+					grid[ranY +1][ranX] ="[]";
+					continue;
+				}
+				
+				if(grid [ranY+2][ranX+1] !="[S]" && grid [ranY+2][ranX+1] != "[G]") {
 				grid [ranY+2][ranX+1] = "[*]";
+				}
+				else if(grid[ranY][ranX] =="[*]" && grid[ranY +1][ranX] =="[*]" && grid [ranY+2][ranX] =="[*]") {
+					grid[ranY][ranX] ="[]";
+					grid[ranY +1][ranX] ="[]";
+					grid[ranY +2][ranX] ="[]";
+					continue;
+				}
+				if(grid [ranY+2][ranX+2] != "[S]" && grid [ranY+2][ranX+2] != "[G]") {
 				grid [ranY+2][ranX+2] = "[*]";
+				}
+				else if(grid[ranY][ranX] =="[*]" && grid[ranY +1][ranX] =="[*]" && grid [ranY+2][ranX] =="[*]" && grid [ranY+2][ranX+1] == "[*]") {
+					grid[ranY][ranX] ="[]";
+					grid[ranY +1][ranX] ="[]";
+					grid[ranY +2][ranX] ="[]";
+					grid[ranY +2][ranX +1] ="[]";
+					continue;
+				}
 			}	
 		}	
 		
@@ -225,6 +265,8 @@ public class is18250785 {
 			}
 			
 			//Sorts data in order of [Node][g value][h value][f value]
+			//Contains issue as it will hit an out of bounds exception because open is bigger than the allocated fscore array size of 4
+			//For this section it needs some other method to track placement rather than going of the size of open as it causes too many out of bounds errors
 			//I would say it might need some other kind of count to keep track of whats in open for our sake or even writing it down so we get the logic and can
 			//remove the correct entry from open without all the extra confusion
 			//Another potential option is the iterator.remove function within array lists that might be of use. Can you try mess with both of these please
