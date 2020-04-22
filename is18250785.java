@@ -222,7 +222,7 @@ public class is18250785 {
 			}
 			
 			if(currentX > 0) {
-				if((grid[currentY][currentX -1] != null)&&(grid[currentY][currentX -1] != "[*]")) {
+				if(grid[currentY][currentX -1] != "[*]") {
 					X[Xcount][0] = M[currentY][currentX-1];
 					X[Xcount][1] = currentY;
 					X[Xcount][2] = currentX;
@@ -231,7 +231,7 @@ public class is18250785 {
 			}
 			
 			if(currentY < 7) {
-				if((grid[currentY+1][currentX] != null)&&(grid[currentY+1][currentX] != "[*]")) {
+				if(grid[currentY+1][currentX] != "[*]") {
 					X[Xcount][0] = M[currentY+1][currentX];
 					X[Xcount][1] = currentY;
 					X[Xcount][2] = currentX;
@@ -240,7 +240,7 @@ public class is18250785 {
 			}
 			
 			if(currentY > 0) {
-				if((grid[currentY -1][currentX] != null)&&(grid[currentY -1][currentX] != "[*]")) {
+				if(grid[currentY -1][currentX] != "[*]") {
 					X[Xcount][0] = M[currentY-1][currentX];
 					X[Xcount][1] = currentY;
 					X[Xcount][2] = currentX;
