@@ -1,6 +1,7 @@
 /*
  * Student 1: Luke Kellett Murray 18250785
  * Student 2: Scott Kelleher 18255078
+ * The big lmao
  */
 
 import java.util.ArrayList;
@@ -22,13 +23,13 @@ public class is18250785 {
 	
 		Scanner in = new Scanner(System.in);
 		System.out.println("Please enter starting X co-ordinant");
-		userStartx = in.nextInt();
+		userStartx = (in.nextInt()-1);
 		System.out.println("Please enter starting Y co-ordinant");
-		userStarty = in.nextInt();
+		userStarty = (in.nextInt()-1);
 		System.out.println("Please enter goal X co-ordinant");
-		userGoalx = in.nextInt();
+		userGoalx = (in.nextInt()-1);
 		System.out.println("Please enter goal Y co-ordinant");
-		userGoaly = in.nextInt();
+		userGoaly = (in.nextInt()-1);
 		in.close();
 		
 		//Generate blank grid
@@ -224,8 +225,6 @@ public class is18250785 {
 			}
 			
 			//Sorts data in order of [Node][g value][h value][f value]
-			//Contains issue as it will hit an out of bounds exception because open is bigger than the allocated fscore array size of 4
-			//For this section it needs some other method to track placement rather than going of the size of open as it causes too many out of bounds errors
 			//I would say it might need some other kind of count to keep track of whats in open for our sake or even writing it down so we get the logic and can
 			//remove the correct entry from open without all the extra confusion
 			//Another potential option is the iterator.remove function within array lists that might be of use. Can you try mess with both of these please
