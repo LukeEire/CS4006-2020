@@ -24,13 +24,13 @@ public class is18250785 {
 	
 		Scanner in = new Scanner(System.in);
 		System.out.println("Please enter starting X co-ordinant");
-		userStartx = in.nextInt();
+		userStartx = (in.nextInt()-1);
 		System.out.println("Please enter starting Y co-ordinant");
-		userStarty = in.nextInt();
+		userStarty = (in.nextInt()-1);
 		System.out.println("Please enter goal X co-ordinant");
-		userGoalx = in.nextInt();
+		userGoalx = (in.nextInt()-1);
 		System.out.println("Please enter goal Y co-ordinant");
-		userGoaly = in.nextInt();
+		userGoaly = (in.nextInt()-1);
 		in.close();
 		
 		//Generate blank grid
