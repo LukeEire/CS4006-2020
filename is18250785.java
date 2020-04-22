@@ -221,25 +221,31 @@ public class is18250785 {
 				}
 			}
 			
-			if((grid[currentY][currentX -1] != null)&&(grid[currentY][currentX -1] != "[*]")) {
-				X[Xcount][0] = M[currentY][currentX-1];
-				X[Xcount][1] = currentY;
-				X[Xcount][2] = currentX;
-				Xcount++;
+			if(currentX > 0) {
+				if((grid[currentY][currentX -1] != null)&&(grid[currentY][currentX -1] != "[*]")) {
+					X[Xcount][0] = M[currentY][currentX-1];
+					X[Xcount][1] = currentY;
+					X[Xcount][2] = currentX;
+					Xcount++;
+				}
 			}
 			
-			if((grid[currentY+1][currentX] != null)&&(grid[currentY+1][currentX] != "[*]")) {
-				X[Xcount][0] = M[currentY+1][currentX];
-				X[Xcount][1] = currentY;
-				X[Xcount][2] = currentX;
-				Xcount++;
+			if(currentY < 7) {
+				if((grid[currentY+1][currentX] != null)&&(grid[currentY+1][currentX] != "[*]")) {
+					X[Xcount][0] = M[currentY+1][currentX];
+					X[Xcount][1] = currentY;
+					X[Xcount][2] = currentX;
+					Xcount++;
+				}
 			}
 			
-			if((grid[currentY -1][currentX] != null)&&(grid[currentY -1][currentX] != "[*]")) {
-				X[Xcount][0] = M[currentY-1][currentX];
-				X[Xcount][1] = currentY;
-				X[Xcount][2] = currentX;
-				Xcount++;
+			if(currentY > 0) {
+				if((grid[currentY -1][currentX] != null)&&(grid[currentY -1][currentX] != "[*]")) {
+					X[Xcount][0] = M[currentY-1][currentX];
+					X[Xcount][1] = currentY;
+					X[Xcount][2] = currentX;
+					Xcount++;
+				}
 			}
 			
 			//Add X items to open
