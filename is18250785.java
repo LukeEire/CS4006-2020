@@ -105,7 +105,7 @@ public class is18250785 {
                 grid [ranY][ranX +1] = "[*]";
                   }
                  else if (grid [ranY][ranX] == "[*]") {
-                   grid [ranY][ranX] = "[]";
+                   grid [ranY][ranX] = "[] ";
                    continue;
                  }
                           
@@ -113,8 +113,8 @@ public class is18250785 {
                 grid [ranY][ranX +2] = "[*]";
                            }
                  else if(grid[ranY][ranX +1] == "[*]" && grid[ranY][ranX] == "[*]") {
-                  grid[ranY][ranX +1] = "[]";
-                  grid[ranY][ranX] = "[]";
+                  grid[ranY][ranX +1] = "[] ";
+                  grid[ranY][ranX] = "[] ";
                   continue;
                            }
 
@@ -122,9 +122,9 @@ public class is18250785 {
                  grid [ranY +1][ranX+1] = "[*]";
                            }
                  else if (grid[ranY][ranX] == "[*]" && grid[ranY][ranX+1] == "[*]" && grid[ranY][ranX +2] == "[*]") {
-                          grid[ranY][ranX] = "[]";
-                          grid[ranY][ranX +1] = "[]";
-                          grid[ranY][ranX +2] = "[]";
+                          grid[ranY][ranX] = "[] ";
+                          grid[ranY][ranX +1] = "[] ";
+                          grid[ranY][ranX +2] = "[] ";
                           continue;
                           }
 
@@ -134,10 +134,10 @@ public class is18250785 {
   				obsDone = true;
                            }
                   else if( grid[ranY][ranX] == "[*]" && grid[ranY][ranX+1] == "[*]" && grid[ranY][ranX +2] == "[*]" && grid[ranY +1][ranX +1] == "[*]") {
-                           grid[ranY][ranX] = "[]";
-                           grid[ranY][ranX+1] = "[]";
-                           grid[ranY][ranX +2] = "[]";
-                           grid[ranY +1][ranX +1] = "[]";
+                           grid[ranY][ranX] = "[] ";
+                           grid[ranY][ranX+1] = "[] ";
+                           grid[ranY][ranX +2] = "[] ";
+                           grid[ranY +1][ranX +1] = "[] ";
                            continue;
                             }
             }
@@ -158,7 +158,7 @@ public class is18250785 {
 				grid [ranY+1][ranX] = "[*]";
 				}
 				else if(grid[ranY][ranX] =="[*]") {
-					grid[ranY][ranX] = "[]";
+					grid[ranY][ranX] = "[] ";
 					continue;
 				}
 				
@@ -166,8 +166,8 @@ public class is18250785 {
 				grid [ranY+2][ranX] = "[*]";
 				}
 				else if(grid[ranY][ranX] =="[*]" && grid[ranY +1][ranX] =="[*]") {
-					grid[ranY][ranX] ="[]";
-					grid[ranY +1][ranX] ="[]";
+					grid[ranY][ranX] ="[] ";
+					grid[ranY +1][ranX] ="[] ";
 					continue;
 				}
 				
@@ -175,9 +175,9 @@ public class is18250785 {
 				grid [ranY+2][ranX+1] = "[*]";
 				}
 				else if(grid[ranY][ranX] =="[*]" && grid[ranY +1][ranX] =="[*]" && grid [ranY+2][ranX] =="[*]") {
-					grid[ranY][ranX] ="[]";
-					grid[ranY +1][ranX] ="[]";
-					grid[ranY +2][ranX] ="[]";
+					grid[ranY][ranX] ="[] ";
+					grid[ranY +1][ranX] ="[] ";
+					grid[ranY +2][ranX] ="[] ";
 					continue;
 				}
 				if(grid [ranY+2][ranX+2] != "[S]" && grid [ranY+2][ranX+2] != "[G]") {
@@ -185,10 +185,10 @@ public class is18250785 {
 				obsDone = true; 
 				}
 				else if(grid[ranY][ranX] =="[*]" && grid[ranY +1][ranX] =="[*]" && grid [ranY+2][ranX] =="[*]" && grid [ranY+2][ranX+1] == "[*]") {
-					grid[ranY][ranX] ="[]";
-					grid[ranY +1][ranX] ="[]";
-					grid[ranY +2][ranX] ="[]";
-					grid[ranY +2][ranX +1] ="[]";
+					grid[ranY][ranX] ="[] ";
+					grid[ranY +1][ranX] ="[] ";
+					grid[ranY +2][ranX] ="[] ";
+					grid[ranY +2][ranX +1] ="[] ";
 					continue;
 				}
 			}	
