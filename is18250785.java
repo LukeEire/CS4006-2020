@@ -34,7 +34,7 @@ public class is18250785 {
 		userStartx = 0;
 		userStarty = 0;
 		userGoalx = 7;
-		userGoaly = 7;
+		userGoaly = 3;
 		
 		//Generate blank grid
 		String[][] grid = 
@@ -217,7 +217,7 @@ public class is18250785 {
 			
 			//Checks available moves and adds valid ones to X	
 			if(currentX < 7) {
-				if(grid[currentY][currentX +1] != "[*]") {
+				if(grid[currentY][currentX +1] != "[*]" && (closed.contains(M[currentY][currentX+1]) == false)) {
 					X[Xcount][0] = (M[currentY][currentX+1]);
 					X[Xcount][1] = currentY;
 					X[Xcount][2] = currentX +1;
@@ -227,7 +227,7 @@ public class is18250785 {
 			}
 			
 			if(currentX > 0) {
-				if(grid[currentY][currentX -1] != "[*]") {
+				if(grid[currentY][currentX -1] != "[*]" && (closed.contains(M[currentY][currentX -1]) == false)) {
 					X[Xcount][0] = M[currentY][currentX-1];
 					X[Xcount][1] = currentY;
 					X[Xcount][2] = currentX -1;
@@ -237,7 +237,7 @@ public class is18250785 {
 			}
 			
 			if(currentY < 7) {
-				if(grid[currentY+1][currentX] != "[*]") {
+				if(grid[currentY+1][currentX] != "[*]" && (closed.contains(M[currentY+1][currentX]) == false)) {
 					X[Xcount][0] = M[currentY+1][currentX];
 					X[Xcount][1] = currentY +1;
 					X[Xcount][2] = currentX;
@@ -247,7 +247,7 @@ public class is18250785 {
 			}
 			
 			if(currentY > 0) {
-				if(grid[currentY -1][currentX] != "[*]") {
+				if(grid[currentY -1][currentX] != "[*]" && (closed.contains(M[currentY -1][currentX]) == false)) {
 					X[Xcount][0] = M[currentY-1][currentX];
 					X[Xcount][1] = currentY -1;
 					X[Xcount][2] = currentX;
