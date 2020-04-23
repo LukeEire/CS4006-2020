@@ -282,7 +282,7 @@ public class is18250785 {
 				
 			//Sorts data in order of [Node][g value][h value][f value]
 			for(int i = 0; i < newMoves; i++) {
-				tempFscore[i][0] = open.get((open.size()-i)-1);
+				tempFscore[i][0] = open.get((open.size()-newMoves+i));
 				tempFscore[i][1] = count *10;
 				tempFscore[i][2] = X[i][3];
 				tempFscore[i][3] = tempFscore[i][1] + tempFscore[i][2];
