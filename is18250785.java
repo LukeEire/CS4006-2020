@@ -12,7 +12,7 @@ public class is18250785 {
 	
 		ArrayList<Integer> open = new ArrayList<Integer>();
 		ArrayList<Integer> closed = new ArrayList<Integer>();
-		int[][] X = new int[4][3];
+		int[][] X = new int[4][4];
 		int[][] M = new int[8][8];
 	
 		int userStartx;
@@ -31,8 +31,8 @@ public class is18250785 {
 		userGoaly = (in.nextInt()-1);
 		in.close();
 		*/
-		userStartx = 1;
-		userStarty = 1;
+		userStartx = 0;
+		userStarty = 0;
 		userGoalx = 7;
 		userGoaly = 7;
 		
@@ -221,6 +221,7 @@ public class is18250785 {
 					X[Xcount][0] = (M[currentY][currentX+1]);
 					X[Xcount][1] = currentY;
 					X[Xcount][2] = currentX +1;
+					X[Xcount][3] = getH(currentX +1, currentY, userGoalx, userGoaly);
 					Xcount++;
 				}
 			}
@@ -230,6 +231,7 @@ public class is18250785 {
 					X[Xcount][0] = M[currentY][currentX-1];
 					X[Xcount][1] = currentY;
 					X[Xcount][2] = currentX -1;
+					X[Xcount][3] = getH(currentX -1, currentY, userGoalx, userGoaly);
 					Xcount++;
 				}
 			}
@@ -239,6 +241,7 @@ public class is18250785 {
 					X[Xcount][0] = M[currentY+1][currentX];
 					X[Xcount][1] = currentY +1;
 					X[Xcount][2] = currentX;
+					X[Xcount][3] = getH(currentX, currentY +1, userGoalx, userGoaly);
 					Xcount++;
 				}
 			}
@@ -248,6 +251,7 @@ public class is18250785 {
 					X[Xcount][0] = M[currentY-1][currentX];
 					X[Xcount][1] = currentY -1;
 					X[Xcount][2] = currentX;
+					X[Xcount][3] = getH(currentX, currentY -1, userGoalx, userGoaly);
 					Xcount++;
 				}
 			}
@@ -256,13 +260,8 @@ public class is18250785 {
 			for (int i=0; i<Xcount; i++) {
 				if((closed.contains(X[i][0]))== true) {
 					X[i][0] = 0;
-					X[i][1] = 0;
-					X[i][2] = 0;
-				}else {
+				}else if(X[i][0] != 0){
 					open.add(X[i][0]);
-					X[i][0] = 0;
-					X[i][1] = 0;
-					X[i][2] = 0;
 				}
 			}
 			int newMoves = Xcount;
@@ -274,7 +273,7 @@ public class is18250785 {
 			//Removes items in closed from open
 			for(int i = 0; i < closed.size(); i++) {
 				if(open.contains(closed.get(i))) {
-					open.remove(open.indexOf(closed.get(i)));
+					open.remove(closed.get(i));
 				}
 			}			
 				
@@ -282,7 +281,7 @@ public class is18250785 {
 			for(int i = 0; i < newMoves; i++) {
 				tempFscore[i][0] = open.get((open.size()-i)-1);
 				tempFscore[i][1] = count *10;
-				tempFscore[i][2] = getH(currentX, currentY, userGoalx, userGoaly);
+				tempFscore[i][2] = X[i][3];
 				tempFscore[i][3] = tempFscore[i][1] + tempFscore[i][2];
 			}
 
