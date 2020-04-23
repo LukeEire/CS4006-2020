@@ -326,7 +326,7 @@ public class is18250785 {
 			for (int i = 0; i < 8; i++) {
 				System.out.println("reached i loop");
 				for (int j = 0; j < 8; j++) {
-					System.out.println("reached j loop");
+					
 					System.out.print(grid[i][j]);
 					if(j == 7) {
 						System.out.println("");
