@@ -5,7 +5,6 @@
  */
 
 import java.util.ArrayList;
-
 import java.util.Scanner;
 
 public class is18250785 {
@@ -214,7 +213,7 @@ public class is18250785 {
 			//Checks available moves and adds valid ones to X	
 			if(currentX < 7) {
 				if(grid[currentY][currentX +1] != "[*]") {
-					X[Xcount][0] = M[currentY][currentX+1];
+					X[Xcount][0] = (M[currentY][currentX+1]);
 					X[Xcount][1] = currentY;
 					X[Xcount][2] = currentX;
 					Xcount++;
@@ -261,16 +260,29 @@ public class is18250785 {
 				X[i][2] = 0;
 				}
 			}
+			int newMoves = Xcount;
 			Xcount = 0;
 			
 			//Add current point into closed list
 			closed.add(M[currentY][currentX]);
 			
-			for(int i = 0; i < open.size(); i++) {
-				if(closed.contains(open.get(i))) {
-					open.remove(i);
+			//Removes items in closed from open
+			/*for(int i = 0; i < newMoves; i++) {
+				if(closed.contains(open.get(open.size()-i))) {
+					open.remove(open.size()-i);
+				}
+			}*/
+			
+			Object[] closedTemp = closed.toArray();
+			
+			for(int i = 0; i < closedTemp.length; i++) {
+				if(open.contains(closedTemp[i])) {
+					open.remove(closedTemp[i]);
 				}
 			}
+					
+				
+			
 			
 			//Sorts data in order of [Node][g value][h value][f value]
 			//Contains issue as it will hit an out of bounds exception because open is bigger than the allocated fscore array size of 4
@@ -278,8 +290,8 @@ public class is18250785 {
 			//I would say it might need some other kind of count to keep track of whats in open for our sake or even writing it down so we get the logic and can
 			//remove the correct entry from open without all the extra confusion
 			//Another potential option is the iterator.remove function within array lists that might be of use. Can you try mess with both of these please
-			for(int i = 0; i < open.size(); i++) {
-				tempFscore[i][0] = open.get(i);
+			for(int i = 0; i < newMoves; i++) {
+				tempFscore[i][0] = open.get((open.size()-i)-1);
 				tempFscore[i][1] = count;
 				tempFscore[i][2] = getH(currentX, currentY, userGoalx, userGoaly);
 				tempFscore[i][3] = tempFscore[i][1] + tempFscore[i][2];
@@ -288,7 +300,7 @@ public class is18250785 {
 			//Chooses the lowest f value
 			int bestNode = 0;
 			int bestNodeID = 0;
-			for(int i = 0; i < open.size(); i++) {
+			for(int i = 0; i < newMoves; i++) {
 				if(tempFscore[i][3] < bestNode) {
 					bestNode = tempFscore[i][3];
 					bestNodeID = tempFscore[i][0];
