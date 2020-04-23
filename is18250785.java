@@ -278,8 +278,6 @@ public class is18250785 {
 				}
 			}			
 				
-			
-			//System.out.println("reached line 287");
 			//Sorts data in order of [Node][g value][h value][f value]
 			for(int i = 0; i < newMoves; i++) {
 				tempFscore[i][0] = open.get((open.size()-i)-1);
@@ -336,7 +334,7 @@ public class is18250785 {
 		goalX = goalX*10;
 		goalY = goalY*10;
 		//Manhattan distance
-		hValue = (currentX - goalX) + (currentY + goalY);
+		hValue = (currentX - goalX) + (currentY - goalY);
 		if(hValue < 0) {
 			hValue = hValue * -1;
 		}
