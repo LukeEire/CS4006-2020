@@ -126,6 +126,7 @@ public class is18250785 {
                           
                if(grid [ranY +2][ranX +1] != "[S]" && grid [ranY +2][ranX +1] != "[G]") {
                   grid [ranY +2][ranX+1] = "[*]";
+  				obsDone = true;
                            }
                   else if( grid[ranY][ranX] == "[*]" && grid[ranY][ranX+1] == "[*]" && grid[ranY][ranX +2] == "[*]" && grid[ranY +1][ranX +1] == "[*]") {
                            grid[ranY][ranX] = "[]";
@@ -176,6 +177,7 @@ public class is18250785 {
 				}
 				if(grid [ranY+2][ranX+2] != "[S]" && grid [ranY+2][ranX+2] != "[G]") {
 				grid [ranY+2][ranX+2] = "[*]";
+				obsDone = true; 
 				}
 				else if(grid[ranY][ranX] =="[*]" && grid[ranY +1][ranX] =="[*]" && grid [ranY+2][ranX] =="[*]" && grid [ranY+2][ranX+1] == "[*]") {
 					grid[ranY][ranX] ="[]";
