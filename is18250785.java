@@ -333,11 +333,10 @@ public class is18250785 {
 		goalX = goalX*10;
 		goalY = goalY*10;
 		//Manhattan distance
-		hValue = (currentX - goalX) + (currentY - goalY);
-		if(hValue < 0) {
-			hValue = hValue * -1;
-		}
+		hValue = Math.abs((currentX - goalX)) + Math.abs((currentY - goalY));
+		
 		return hValue;
 	}
+
 }
 	
