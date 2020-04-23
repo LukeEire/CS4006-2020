@@ -299,8 +299,8 @@ public class is18250785 {
 			}
 			System.out.println("reached line 300");
 			//Chooses the lowest f value
-			int bestNode = 0;
-			int bestNodeID = 0;
+			int bestNode = 1000;
+			int bestNodeID = M[currentY][currentX];
 			for(int i = 0; i < newMoves; i++) {
 				if(tempFscore[i][3] < bestNode) {
 					bestNode = tempFscore[i][3];
@@ -318,7 +318,8 @@ public class is18250785 {
 					}
 				}
 			}
-			System.out.println("reached line 321");
+			
+			System.out.println("Current node = " + bestNodeID);
 			
 		}
 		
@@ -326,6 +327,7 @@ public class is18250785 {
 			for (int i = 0; i < 8; i++) {
 				System.out.println("reached i loop");
 				for (int j = 0; j < 8; j++) {
+
 					
 					System.out.print(grid[i][j]);
 					if(j == 7) {
