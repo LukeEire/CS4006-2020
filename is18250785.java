@@ -20,7 +20,7 @@ public class is18250785 {
 		int userGoalx;
 		int userGoaly;
 	
-		Scanner in = new Scanner(System.in);
+		/*Scanner in = new Scanner(System.in);
 		System.out.println("Please enter starting X co-ordinant");
 		userStartx = (in.nextInt()-1);
 		System.out.println("Please enter starting Y co-ordinant");
@@ -30,6 +30,11 @@ public class is18250785 {
 		System.out.println("Please enter goal Y co-ordinant");
 		userGoaly = (in.nextInt()-1);
 		in.close();
+		*/
+		userStartx = 1;
+		userStarty = 1;
+		userGoalx = 7;
+		userGoaly = 7;
 		
 		//Generate blank grid
 		String[][] grid = 
@@ -215,7 +220,7 @@ public class is18250785 {
 				if(grid[currentY][currentX +1] != "[*]") {
 					X[Xcount][0] = (M[currentY][currentX+1]);
 					X[Xcount][1] = currentY;
-					X[Xcount][2] = currentX;
+					X[Xcount][2] = currentX +1;
 					Xcount++;
 				}
 			}
@@ -224,7 +229,7 @@ public class is18250785 {
 				if(grid[currentY][currentX -1] != "[*]") {
 					X[Xcount][0] = M[currentY][currentX-1];
 					X[Xcount][1] = currentY;
-					X[Xcount][2] = currentX;
+					X[Xcount][2] = currentX -1;
 					Xcount++;
 				}
 			}
@@ -232,7 +237,7 @@ public class is18250785 {
 			if(currentY < 7) {
 				if(grid[currentY+1][currentX] != "[*]") {
 					X[Xcount][0] = M[currentY+1][currentX];
-					X[Xcount][1] = currentY;
+					X[Xcount][1] = currentY +1;
 					X[Xcount][2] = currentX;
 					Xcount++;
 				}
@@ -241,24 +246,23 @@ public class is18250785 {
 			if(currentY > 0) {
 				if(grid[currentY -1][currentX] != "[*]") {
 					X[Xcount][0] = M[currentY-1][currentX];
-					X[Xcount][1] = currentY;
+					X[Xcount][1] = currentY -1;
 					X[Xcount][2] = currentX;
 					Xcount++;
 				}
 			}
 			
-			//System.out.println("reached line 250");
 			//Add X items to open
 			for (int i=0; i<Xcount; i++) {
-				if(closed.contains(X[i][0])) {
+				if((closed.contains(X[i][0]))== true) {
 					X[i][0] = 0;
 					X[i][1] = 0;
 					X[i][2] = 0;
 				}else {
-				open.add(X[i][0]);
-				X[i][0] = 0;
-				X[i][1] = 0;
-				X[i][2] = 0;
+					open.add(X[i][0]);
+					X[i][0] = 0;
+					X[i][1] = 0;
+					X[i][2] = 0;
 				}
 			}
 			int newMoves = Xcount;
@@ -268,37 +272,22 @@ public class is18250785 {
 			closed.add(M[currentY][currentX]);
 			
 			//Removes items in closed from open
-			/*for(int i = 0; i < newMoves; i++) {
-				if(closed.contains(open.get(open.size()-i))) {
-					open.remove(open.size()-i);
+			for(int i = 0; i < closed.size(); i++) {
+				if(open.contains(closed.get(i))) {
+					open.remove(open.indexOf(closed.get(i)));
 				}
-			}*/
-			
-			Object[] closedTemp = closed.toArray();
-			
-			for(int i = 0; i < closedTemp.length; i++) {
-				if(open.contains(closedTemp[i])) {
-					open.remove(closedTemp[i]);
-				}
-			}
-					
+			}			
 				
 			
 			//System.out.println("reached line 287");
 			//Sorts data in order of [Node][g value][h value][f value]
-			//Contains issue as it will hit an out of bounds exception because open is bigger than the allocated fscore array size of 4
-			//For this section it needs some other method to track placement rather than going of the size of open as it causes too many out of bounds errors
-			//I would say it might need some other kind of count to keep track of whats in open for our sake or even writing it down so we get the logic and can
-			//remove the correct entry from open without all the extra confusion
-			//Another potential option is the iterator.remove function within array lists that might be of use. Can you try mess with both of these please
 			for(int i = 0; i < newMoves; i++) {
 				tempFscore[i][0] = open.get((open.size()-i)-1);
 				tempFscore[i][1] = count *10;
 				tempFscore[i][2] = getH(currentX, currentY, userGoalx, userGoaly);
 				tempFscore[i][3] = tempFscore[i][1] + tempFscore[i][2];
 			}
-			
-			//System.out.println("reached line 300");
+
 			//Chooses the lowest f value
 			int bestNode = 1000;
 			int bestNodeID = M[currentY][currentX];
@@ -321,6 +310,7 @@ public class is18250785 {
 			}
 			
 			System.out.println("Current node = " + bestNodeID);
+			System.out.println("Current X: " + currentX + "\nCurrent Y: " + currentY); 
 			
 		}
 		
