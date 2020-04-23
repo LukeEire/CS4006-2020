@@ -247,7 +247,7 @@ public class is18250785 {
 				}
 			}
 			
-			System.out.println("reached line 250");
+			//System.out.println("reached line 250");
 			//Add X items to open
 			for (int i=0; i<Xcount; i++) {
 				if(closed.contains(X[i][0])) {
@@ -284,7 +284,7 @@ public class is18250785 {
 					
 				
 			
-			System.out.println("reached line 287");
+			//System.out.println("reached line 287");
 			//Sorts data in order of [Node][g value][h value][f value]
 			//Contains issue as it will hit an out of bounds exception because open is bigger than the allocated fscore array size of 4
 			//For this section it needs some other method to track placement rather than going of the size of open as it causes too many out of bounds errors
@@ -297,7 +297,8 @@ public class is18250785 {
 				tempFscore[i][2] = getH(currentX, currentY, userGoalx, userGoaly);
 				tempFscore[i][3] = tempFscore[i][1] + tempFscore[i][2];
 			}
-			System.out.println("reached line 300");
+			
+			//System.out.println("reached line 300");
 			//Chooses the lowest f value
 			int bestNode = 1000;
 			int bestNodeID = M[currentY][currentX];
@@ -325,7 +326,7 @@ public class is18250785 {
 		
 		//Brief specifies that grid must be printed before user input and again after when all the calculations have been done and the path is found
 			for (int i = 0; i < 8; i++) {
-				System.out.println("reached i loop");
+				//System.out.println("reached i loop");
 				for (int j = 0; j < 8; j++) {
 
 					
