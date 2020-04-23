@@ -31,10 +31,10 @@ public class is18250785 {
 		userGoaly = (in.nextInt()-1);
 		in.close();
 		*/
-		userStartx = 1;
+		userStartx = 0;
 		userStarty = 0;
 		userGoalx = 7;
-		userGoaly = 3;
+		userGoaly = 7;
 		
 		//Generate blank grid
 		String[][] grid = 
@@ -215,10 +215,6 @@ public class is18250785 {
 		
 		while(complete == false) {
 			
-			if((currentX == userGoalx) && (currentY == userGoaly)) {
-				complete = true;
-			}
-			
 			//Used to get the g value
 			int count = 1;
 			
@@ -311,6 +307,10 @@ public class is18250785 {
 			
 			System.out.println("Current node = " + bestNodeID);
 			System.out.println("Current X: " + currentX + "\nCurrent Y: " + currentY); 
+			
+			if((currentX == userGoalx) && (currentY == userGoaly)) {
+				complete = true;
+			}
 			
 		}
 		
