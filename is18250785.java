@@ -20,7 +20,7 @@ public class is18250785 {
 		int userGoalx;
 		int userGoaly;
 	
-		/*Scanner in = new Scanner(System.in);
+		Scanner in = new Scanner(System.in);
 		System.out.println("Please enter starting X co-ordinant");
 		userStartx = (in.nextInt()-1);
 		System.out.println("Please enter starting Y co-ordinant");
@@ -30,11 +30,6 @@ public class is18250785 {
 		System.out.println("Please enter goal Y co-ordinant");
 		userGoaly = (in.nextInt()-1);
 		in.close();
-		*/
-		userStartx = 0;
-		userStarty = 0;
-		userGoalx = 7;
-		userGoaly = 7;
 		
 		//Generate blank grid
 		String[][] grid = 
@@ -301,9 +296,13 @@ public class is18250785 {
 					if(M[i][j] == bestNodeID) {
 						currentX = j;
 						currentY = i;
+						grid[i][j] = "[/]";
+						grid[userGoaly][userGoalx] = "[G]";
 					}
 				}
 			}
+			
+			
 			
 			System.out.println("Current node = " + bestNodeID);
 			System.out.println("Current X: " + currentX + "\nCurrent Y: " + currentY); 
