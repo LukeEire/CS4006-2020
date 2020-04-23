@@ -1,6 +1,5 @@
 /*
  * Student 1: Luke Kellett Murray 18250785
-
  * Student 2: Scott Kelleher 18255078
  */
 
@@ -49,8 +48,7 @@ public class is18250785 {
 		grid[userStarty][userStartx] = "[S]";
 		grid[userGoaly][userGoalx] = "[G]";
 		
-		int ranShape = 1;
-				//(int) (((Math.random() * 3)+1));
+		int ranShape = (int)((( Math.random() * 3)+1));
 		boolean obsDone = false;
 		
 		//
