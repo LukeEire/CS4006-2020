@@ -31,7 +31,7 @@ public class is18250785 {
 		userGoaly = (in.nextInt()-1);
 		in.close();
 		*/
-		userStartx = 0;
+		userStartx = 1;
 		userStarty = 0;
 		userGoalx = 7;
 		userGoaly = 3;
@@ -195,22 +195,29 @@ public class is18250785 {
 		}	
 		
 		//fill out M with index number for each node
-		int blockNum = 1;
-				
+		int blockNum = 1;		
 		for(int i =0; i < 8; i++) {
 			for(int j =0; j < 8; j++) {
 				M[i][j] = blockNum;
 				blockNum++;
 			}
 		}		
-				
+			
+		
+		
+		
 		//Loop roughly goes here
 		int currentX = userStartx;
 		int currentY = userStarty;
 		int Xcount = 0;
 		int[][] tempFscore = new int[4][4];
+		boolean complete = false;
 		
-		while((currentX != userGoalx) && (currentY != userGoaly)) {
+		while(complete == false) {
+			
+			if((currentX == userGoalx) && (currentY == userGoaly)) {
+				complete = true;
+			}
 			
 			//Used to get the g value
 			int count = 1;
@@ -258,12 +265,8 @@ public class is18250785 {
 			
 			//Add X items to open
 			for (int i=0; i<Xcount; i++) {
-				if((closed.contains(X[i][0]))== true) {
-					X[i][0] = 0;
-				}else if(X[i][0] != 0){
 					open.add(X[i][0]);
 				}
-			}
 			int newMoves = Xcount;
 			Xcount = 0;
 			
@@ -313,7 +316,6 @@ public class is18250785 {
 		
 		//Brief specifies that grid must be printed before user input and again after when all the calculations have been done and the path is found
 			for (int i = 0; i < 8; i++) {
-				//System.out.println("reached i loop");
 				for (int j = 0; j < 8; j++) {
 
 					
