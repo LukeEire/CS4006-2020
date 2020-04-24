@@ -20,6 +20,7 @@ public class is18250785 {
 		int userGoalx;
 		int userGoaly;
 	
+		//Validate input here
 		Scanner in = new Scanner(System.in);
 		System.out.println("Please enter starting X co-ordinant");
 		userStartx = (in.nextInt()-1);
