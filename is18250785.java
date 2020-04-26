@@ -21,22 +21,27 @@ public class is18250785 {
 		int userGoaly = -1;
 	
 		//Validate input here
-		System.out.println("Co-ordinates range from 1-8 on both the X-Axis and Y-axis");
+		System.out.println("Co-Ordinates range from 1-8 on both the X-Axis and Y-axis");
 		Scanner in = new Scanner(System.in);
-		while( 0> userStartx || userStartx > 7) {
 		System.out.println("Please enter starting X co-ordinate");
-		userStartx = (in.nextInt()-1);
+		while( 0> userStartx || userStartx > 7) {
+		while(!in.hasNextInt()) in.next();
+		    userStartx = in.nextInt()-1;
 		}
-		while(0> userStarty || userStarty>7) {
+		
 		System.out.println("Please enter starting Y co-ordinate");
+		while(0> userStarty || userStarty>7) {
+		while(!in.hasNextInt()) in.next();
 		userStarty = (in.nextInt()-1);
 		}
-		while(0>userGoalx || userGoalx>7) {
 		System.out.println("Please enter goal X co-ordinate");
+		while(0>userGoalx || userGoalx>7) {
+		while(!in.hasNextInt()) in.next();
 		userGoalx = (in.nextInt()-1);
 		}
-		while(0>userGoaly || userGoaly>7) {
 		System.out.println("Please enter goal Y co-ordinate");
+		while(0>userGoaly || userGoaly>7) {
+		while(!in.hasNextInt()) in.next();
 		userGoaly = (in.nextInt()-1);
 		}
 		in.close();
