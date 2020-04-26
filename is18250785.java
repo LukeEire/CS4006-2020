@@ -21,7 +21,7 @@ public class is18250785 {
 		int userGoaly = -1;
 	
 		//Validate input here
-		System.out.println("Co-Ordinates range from 1-8 on both the X-Axis and Y-axis");
+		System.out.println("Co-ordinates range from 1-8 on both the X-Axis and Y-axis");
 		Scanner in = new Scanner(System.in);
 		while( 0> userStartx || userStartx > 7) {
 		System.out.println("Please enter starting X co-ordinate");
@@ -314,14 +314,24 @@ public class is18250785 {
 			
 			
 			
-			System.out.println("Current node = " + bestNodeID);
-			System.out.println("Current X: " + currentX + "\nCurrent Y: " + currentY); 
+			//System.out.println("Current node = " + bestNodeID);
+			//System.out.println("Current X: " + currentX + "\nCurrent Y: " + currentY); 
 			
 			if((currentX == userGoalx) && (currentY == userGoaly)) {
 				complete = true;
+				
 			}
 			
 		}
+		
+		String movesMade = "";
+
+		for (Integer i : closed)
+		{
+		    movesMade += i + " ";
+		}
+		System.out.println("Moves made: " + movesMade);
+		
 		
 		//Brief specifies that grid must be printed before user input and again after when all the calculations have been done and the path is found
 			for (int i = 0; i < 8; i++) {
@@ -334,7 +344,6 @@ public class is18250785 {
 					}
 				}
 			}
-			System.out.println("reached line 334");
 	}
 	
 	public static int getH(int currentX, int currentY, int goalX, int goalY) {
